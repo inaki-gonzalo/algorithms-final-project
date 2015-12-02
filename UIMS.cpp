@@ -20,7 +20,7 @@ UIMS::UIMS(){
 }
 void UIMS::generateSalt(){
 	for(int i=0;i<16*6/4;i++){
-		salt[i]=rand() % size +1;
+		salt[i]=(rand() % (size-1))+1; //between 1 and (size-1)
 		
 	}
 	
@@ -68,6 +68,7 @@ double UIMS::load(){
 void UIMS::reallocate(){
 	int oldSize=size;
 	size*=2;
+	generateSalt();
 	SLItemList* tempTable=new SLItemList[size];
 	for(int i=0;i<oldSize;i++){
 		SItem* current=table[i].getHead();
