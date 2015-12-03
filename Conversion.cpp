@@ -30,6 +30,7 @@ int* Conversion::stringToBitseq(string s){
 		if(s[i]>='A'&& s[i]<='Z'){
 			temp[i]=s[i]-'A'+36;
 		}
+		temp[i]++;//shift all of them by one and avoid 0 mapped to 0
 		int* array=NumToBitseq(temp[i]);
 		for(int a=5;a>=0;a--){
 			
@@ -66,8 +67,8 @@ int* Conversion::NumToBitseq(int n){
 int* Conversion::BitseqToDigitseq(int* array, int k){
 	int* buffer=new int[16*6/(k)];//
 	int index=0;
-	for(int i=0;i<16*6;i+=k){
-		buffer[index]=BitseqToBigNum(array+i,k);
+	for(int i=0;i<16*6/k;i++){
+		buffer[index]=BitseqToBigNum(array+(i*k),k);
 		index++;
 	}
 	return buffer;

@@ -12,6 +12,8 @@
 using namespace std;
 class UIMS{
 int size;
+int size2Power;
+int k;
 int customerCount;
 int* salt;
 SLItemList* table;
@@ -27,7 +29,8 @@ void add(const string uid);
 void generateSalt();
 void print();
 void status();
-
+void stats();
+int closestPrime(int powerOfTwo);
 };
 #endif 
 

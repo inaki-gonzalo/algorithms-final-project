@@ -85,23 +85,23 @@ void testUIMS(int iterations){
 		}
 	}
 	table.status();
-	table.print();
+	//table.print();
 	cout<<"average add time="<<sum/counter<<endl;
 };
 
 
 };
-
+/*
 int main(){
-	tester t;
+	tester t,t2,t3;
 	//t.testConversion();
 	
 	//t.tt();
 	t.testUIMS(100);
-	//t.testUIMS(1000);
-	//t.testUIMS(10000);
+	t2.testUIMS(1000);
+	t3.testUIMS(10000);
 	//t.testUIMS(100000);
 	//t.testUIMS(1000000);
 	return 0;
 }
-
+*/
