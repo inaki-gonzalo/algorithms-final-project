@@ -1,5 +1,8 @@
 //Inaki Gonzalo
 //id:1359345
+//Jonathan Beebout
+//id:1438806
+//Miriam Ali
 
 
 #include <iostream>
@@ -7,9 +10,11 @@
 #include <regex>
 #include "UIMS.h"
 #include <chrono>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
-class interface{
+class TestDrivers{
 private:
 UIMS table;
 
@@ -64,6 +69,7 @@ void run(){
 	cout<<"i:insert"<<endl;
 	cout<<"t: run tests"<<endl;
 	cout<<"s: stats"<<endl;
+	cout<<"f: read from file"<<endl;
 	string response;
 	cin>>response;
 	if(response=="i"){
@@ -87,6 +93,21 @@ void run(){
 	else if(response=="s"){
 		table.status();
 	}
+	else if(response=="f"){//reading from file
+		string name="";
+		ifstream fileio ("INPUT");
+		stringstream ss;
+		while (getline(fileio,name)) {
+			if (isValid(name)&&table.isAvailable(name)){
+
+				table.add(name);
+				
+			}
+		}
+		table.printToFile();
+		cout<<"Printed to file"<<endl;	
+		
+	}
 	
 };
 
@@ -96,9 +117,9 @@ void run(){
 int main()
 {
 	
-	interface i;
+	TestDrivers t;
 	while(true){
-		i.run();
+		t.run();
 		
 	}
 	

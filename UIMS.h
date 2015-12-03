@@ -31,6 +31,7 @@ void print();
 void status();
 void stats();
 int closestPrime(int powerOfTwo);
+void printToFile();
 };
 #endif 
 

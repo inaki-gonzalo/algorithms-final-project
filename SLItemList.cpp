@@ -7,6 +7,7 @@
 #include "SItem.h"
 #include "SLItemList.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 SLItemList::SLItemList(){
@@ -43,11 +44,33 @@ void SLItemList::print(){
 	}
 	SItem* current=head;
 	do{
-		cout<<current->toString()<<"  ";
+		cout<<current->toString();
 		current=current->getNext();
+		if(current!=0){
+			cout<<", ";
+		}
 			
 	}while(current!=0);
 	cout<<endl;
+	
+};
+string SLItemList::toString(){
+	string buffer="";
+	if(head==0){
+		return buffer;
+	}
+	
+	SItem* current=head;
+	do{
+		buffer+=current->toString();
+		current=current->getNext();
+		if(current!=0){
+			buffer+=", ";
+		}
+			
+	}while(current!=0);
+	buffer+="\n";
+	return buffer;
 	
 };//end of print
 

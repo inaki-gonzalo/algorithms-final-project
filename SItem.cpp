@@ -25,7 +25,7 @@ void SItem::setNext(SItem* next){
 	this->next=next;
 };
 const string SItem::toString() const {
-	return "SItem:uid="+uid+",key="+to_string(cid);
+	return uid;
 };
 
 

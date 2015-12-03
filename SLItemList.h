@@ -8,6 +8,7 @@
 #include <string>
 #include "SItem.h"
 #include <iostream>
+
 using namespace std;
 class SLItemList{
 	private:
@@ -20,6 +21,7 @@ class SLItemList{
 	
 	
 	void print();
+	string toString();
 	
 };
 #endif 

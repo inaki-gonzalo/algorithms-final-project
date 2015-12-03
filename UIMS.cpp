@@ -7,6 +7,8 @@
 #include <iostream>
 #include "Conversion.h"
 #include "UIMS.h"
+#include <stdlib.h> 
+#include <fstream>
 using namespace std;
 
 
@@ -103,11 +105,22 @@ void UIMS::add(const string uid){
 
 
 void UIMS::print(){
+	
 	cout<<"Printing table"<<endl;
 	for (int i=0;i<size;i++){
 		if(table[i].getHead()!=0){
-			cout<<"index["<<i<<"]:";
+			cout<<" "<<i<<" - ";
 			table[i].print();
+		}
+	}
+};
+void UIMS::printToFile(){
+	ofstream outputFileStream ("OUTPUT",ofstream::out);
+	
+	for (int i=0;i<size;i++){
+		if(table[i].getHead()!=0){
+			outputFileStream<<" "<<i<<" - ";
+			outputFileStream<<table[i].toString();
 		}
 	}
 };
